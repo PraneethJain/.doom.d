@@ -52,3 +52,4 @@
 
 (package! tldr)
 (package! catppuccin-theme)
+(package! all-the-icons)
