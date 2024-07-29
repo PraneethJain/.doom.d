@@ -22,7 +22,7 @@
 ;; accept. For example:
 ;;
 (setq doom-font (font-spec :family "MonaspiceAr Nerd Font" :size 20 :weight 'semi-light)
-    doom-variable-pitch-font (font-spec :family "MonaspiceAr Nerd Font" :size 21))
+      doom-variable-pitch-font (font-spec :family "MonaspiceAr Nerd Font" :size 21))
 
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -110,6 +110,14 @@
 (setq confirm-kill-emacs nil)
 (setq doom-theme 'catppuccin)
 (require 'ox-beamer)
+(defun eshell-toggle-bottom ()
+  (interactive)
+  (let* ((eshell-buffer-name "*eshell-bottom*")
+         (eshell-window (get-buffer-window eshell-buffer-name)))
+    (if eshell-window
+        (delete-window eshell-window)
+      (select-window (split-window-vertically (- (window-height) 10)))
+      (eshell))))
 
 (map! :leader
       :desc "Kill compilation"
@@ -119,5 +127,7 @@
       :desc "Toggle modeline"
       "m l" #'hide-mode-line-mode)
 
-(use-package emojify
-  :hook (after-init . global-emojify-mode))
+
+(map! :leader
+      (:prefix ("o" . "open")
+       :desc "Toggle bottom eshell" "e" #'eshell-toggle-bottom))
