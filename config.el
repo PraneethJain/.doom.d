@@ -110,14 +110,6 @@
 (setq confirm-kill-emacs nil)
 (setq doom-theme 'catppuccin)
 (require 'ox-beamer)
-(defun eshell-toggle-bottom ()
-  (interactive)
-  (let* ((eshell-buffer-name "*eshell-bottom*")
-         (eshell-window (get-buffer-window eshell-buffer-name)))
-    (if eshell-window
-        (delete-window eshell-window)
-      (select-window (split-window-vertically (- (window-height) 10)))
-      (eshell))))
 
 (map! :leader
       :desc "Kill compilation"
@@ -130,4 +122,4 @@
 
 (map! :leader
       (:prefix ("o" . "open")
-       :desc "Toggle bottom eshell" "e" #'eshell-toggle-bottom))
+       :desc "Toggle eshell" "e" #'+eshell/toggle))
