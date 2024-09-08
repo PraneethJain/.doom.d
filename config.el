@@ -117,8 +117,9 @@
 
 (map! :leader
       :desc "Toggle modeline"
-      "m l" #'hide-mode-line-mode)
+      "m l" #'global-hide-mode-line-mode)
 
+(global-hide-mode-line-mode)
 
 (map! :leader
       (:prefix ("o" . "open")
