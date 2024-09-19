@@ -21,8 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "MonaspiceAr Nerd Font" :size 20 :weight 'semi-light)
-      doom-variable-pitch-font (font-spec :family "MonaspiceAr Nerd Font" :size 21))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 20 :weight 'semi-light)
+      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 21))
 
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -124,3 +124,5 @@
 (map! :leader
       (:prefix ("o" . "open")
        :desc "Toggle eshell" "e" #'+eshell/toggle))
+
+(add-hook! 'dired-mode-hook 'dired-sort-toggle-or-edit)
